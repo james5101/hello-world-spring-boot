@@ -3,4 +3,6 @@ services:
   javaspring:
     build: .
     image: javaspring-compose:latest
+    ports: 
+        - "8080:8080"
     
