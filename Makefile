@@ -9,6 +9,12 @@ help: ## show all targets help
 build: ## build target that will perform a docker build command against our Dockerfile
 	docker build -t ${IMAGE_TAG} .
 
+build-compose: ## build target that will perform a docker build command against our Dockerfile
+	docker-compose build
+
+up-compose: ## build target that will perform a docker build command against our Dockerfile
+	docker-compose up -d
+
 .PHONY: run
 run: ## run target that will perform a docker run command against our docker image
 	docker run --cidfile cid.txt -p ${PORT}:${PORT} ${IMAGE_TAG}
