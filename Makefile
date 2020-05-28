@@ -3,17 +3,20 @@ IMAGE_TAG := hello-java-3m
 
 .PHONY: help
 help: ## show all targets help
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//''
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
 .PHONY: build
 build: ## build target that will perform a docker build command against our Dockerfile
 	docker build -t ${IMAGE_TAG} .
 
-build-compose: ## build target that will perform a docker build command against our Dockerfile
+build-compose: ## build target that will perform a docker-compose build command against our Dockerfile
 	docker-compose build
 
-up-compose: ## build target that will perform a docker build command against our Dockerfile
+up-compose: ## build target that will perform a docker-compose up command against our Dockerfile
 	docker-compose up -d
+
+down-compose: ## build target that will perform a docker-compose down command against our Dockerfile
+	docker-compose down
 
 .PHONY: run
 run: ## run target that will perform a docker run command against our docker image
