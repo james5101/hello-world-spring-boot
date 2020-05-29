@@ -10,7 +10,7 @@ build: ## build target that will perform a docker-compose build command against 
 
 .PHONY: run
 run: ## run target that will perform a docker-compose run against a single docker-compose service
-	${DOCKER_COMPOSE} run -d javaspring
+	${DOCKER_COMPOSE} run javaspring
 
 .PHONY: up
 up: ## build target that will perform a docker-compose up (build and run) command against our Dockerfile
