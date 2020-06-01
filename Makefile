@@ -20,6 +20,3 @@ build: ## build target that will perform a docker-compose build command against 
 run: ## run target that will perform a docker-compose run against a single docker-compose service
 	${DOCKER_COMPOSE} run javaspring
 
-.PHONY: clean
-clean: ## build target that will perform a docker-compose down command against our Dockerfile
-	${DOCKER_COMPOSE} down --rmi all
