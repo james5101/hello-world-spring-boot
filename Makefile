@@ -4,14 +4,6 @@ DOCKER_COMPOSE ?= docker-compose
 help: ## show all targets help
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-.PHONY: build
-build: ## build target that will perform a docker-compose build command against our Dockerfile
-	${DOCKER_COMPOSE} build
-
-.PHONY: run
-run: ## run target that will perform a docker-compose run against a single docker-compose service
-	${DOCKER_COMPOSE} run javaspring
-
 .PHONY: up
 up: ## build target that will perform a docker-compose up (build and run) command against our Dockerfile
 	${DOCKER_COMPOSE} up -d
@@ -19,6 +11,14 @@ up: ## build target that will perform a docker-compose up (build and run) comman
 .PHONY: endpoint
 endpoint:
 	curl http://localhost:8080
+
+.PHONY: build
+build: ## build target that will perform a docker-compose build command against our Dockerfile
+	${DOCKER_COMPOSE} build
+
+.PHONY: run
+run: ## run target that will perform a docker-compose run against a single docker-compose service
+	${DOCKER_COMPOSE} run javaspring
 
 .PHONY: clean
 clean: ## build target that will perform a docker-compose down command against our Dockerfile
